@@ -63,11 +63,34 @@ users = User.all
  Comment.find_or_create_by(post: posts.sample, body: "Sample body...")
  puts "#{Post.count}"
 
+ # My Test Login
  user = User.first
  user.update_attributes!(
+   name: 'rrmcburn',
    email: 'rrmcburn@gmail.com',
-   password: 'ryan'
+   password: 'ryan',
+   role:     'admin'
  )
+
+ # Create an admin user
+ admin = User.create!(
+   name:     'Admin User',
+   email:    'admin@example.com',
+   password: 'helloworld',
+   role:     'admin'
+ )
+ # Create a member
+ member = User.create!(
+   name:     'Member User',
+   email:    'member@example.com',
+   password: 'helloworld'
+ )
+
+ moderator = User.create!(
+  name:     'Mod User',
+  email:    'mod@example.com',
+  password: 'helloworld'
+)
 
  puts "Seed finished"
  puts "#{User.count} users created"
