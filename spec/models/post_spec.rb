@@ -11,6 +11,8 @@ RSpec.describe Post, type: :model do
     let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
     let(:post) { topic.posts.create!(title: title, body: body, user: user) }
 
+    it { is_expected.to have_many(:comments) }
+
     it { is_expected.to belong_to(:topic) }
     it { is_expected.to belong_to(:user) }
 
@@ -25,6 +27,6 @@ RSpec.describe Post, type: :model do
    describe "attributes" do
      it "has a title, body, and user attribute" do
        expect(post).to have_attributes(title: title, body: body, user: user)
-     end 
+     end
    end
 end

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :posts
+  has_many :comments
 
   before_save { self.email = email.downcase if email.present? }
   before_save { self.role ||= :member }
@@ -14,7 +15,7 @@ class User < ApplicationRecord
   validates :email,
              presence: true,
              uniqueness: { case_sensitive: false },
-             length: { minimum: 2, maximum: 254 }
+             length: { minimum: 4, maximum: 254 }
 
   has_secure_password
 
