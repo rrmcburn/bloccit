@@ -13,15 +13,18 @@ Rails.application.routes.draw do
      resources :comments, only: [:create, :destroy]
    end
 
-  resources :users, only: [:new, :create]
+   post '/up-vote' => 'votes#up_vote', as: :up_vote
+   post '/down-vote' => 'votes#down_vote', as: :down_vote
 
-  resources :sessions, only: [:new, :create, :destroy]
+   resources :users, only: [:new, :create]
+
+   resources :sessions, only: [:new, :create, :destroy]
 
 
-  post 'users/confirm' => 'users#confirm'
+   post 'users/confirm' => 'users#confirm'
 
-  get 'about' => 'welcome#about'
+   get 'about' => 'welcome#about'
 
-  root 'welcome#index'
+   root 'welcome#index'
 
 end
