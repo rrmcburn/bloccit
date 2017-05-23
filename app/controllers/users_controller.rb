@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    Rails.logger.info "PARAMS-->"
+    Rails.logger.info params['user'].inspect
+    Rails.logger.info params['user']['name']
+  
+
      @user = User.new
      @user.name = params['user']['name']
      @user.email = params['user']['email']
@@ -21,6 +26,7 @@ class UsersController < ApplicationController
    end
 
    def confirm
+     Rails.logger.info "H"
       @user = User.new
       @user.name = params['user']['name']
       @user.email = params['user']['email']
