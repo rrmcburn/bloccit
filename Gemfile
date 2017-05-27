@@ -35,3 +35,5 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Bootstrap SCSS
 gem 'bootstrap-sass'
+# Figaro
+gem 'figaro', '1.0'
