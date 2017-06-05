@@ -14,8 +14,8 @@ Rails.application.routes.draw do
      resources :favorites, only: [:create, :destroy]
    end
 
-   post '/up-vote' => 'votes#up_vote', as: :up_vote
-   post '/down-vote' => 'votes#down_vote', as: :down_vote
+   post '/up-vote/:post_id' => 'votes#up_vote', as: :up_vote
+   post '/down-vote/:post_id' => 'votes#down_vote', as: :down_vote
 
    resources :users, only: [:new, :create, :show]
 
